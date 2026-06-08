@@ -1,0 +1,29 @@
+{
+  "id": "claude-home",
+  "version": "1.0.0",
+  "name": "Claude Home",
+  "description": "Mounts the host ~/.claude directory to /opt/claude-home and sets CLAUDE_CONFIG_DIR so Claude Code reads and writes config there regardless of the container username. Fixes a bug where absolute plugin paths stored by Claude Code don't resolve when host and container usernames differ.",
+  "options": {},
+  "mounts": [
+    {
+      "source": "${localEnv:HOME}/.claude",
+      "target": "/opt/claude-home",
+      "type": "bind",
+      "consistency": "cached"
+    },
+    {
+      "source": "${localEnv:HOME}/.claude.json",
+      "target": "/opt/claude-json",
+      "type": "bind",
+      "consistency": "cached"
+    }
+  ],
+  "onCreateCommand": "bash /usr/local/lib/claude-home/on-create.sh",
+  "postCreateCommand": "mkdir -p ${localEnv:HOME} && ln -s /opt/claude-home ${localEnv:HOME}/.claude",
+  "installsAfter": [
+    "ghcr.io/stu-bell/devcontainer-features/claude-code",
+    "ghcr.io/anthropics/devcontainer-features/claude-code",
+    "ghcr.io/devcontainers-extra/features/claude-code",
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}
