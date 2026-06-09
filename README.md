@@ -35,3 +35,8 @@ The bind mount is configured automatically by the feature — no `mounts` entry 
 ### If the host `~/.claude` directory does not exist
 
 `/mnt/claude-dir` will exist as an empty directory inside the container and Claude Code will start fresh with no persisted config. No error will occur — Claude Code will simply behave as if it has never been configured.
+
+### Similar features
+
+- [ghcr.io/esimkowitz/devcontainer-features/claude-code-persistence](https://github.com/esimkowitz/devcontainer-features/tree/main/src/claude-code-persistence) : Mounts a shared volume across multiple devcontainers. Does not fix plugin paths.
+- [ghcr.io/sliekens/devcontainer-features/claude](https://github.com/sliekens/devcontainer-features/tree/main/src/claude) : Bind mounts (like this feature), but also installs Claude Code directly, and doesn't fix the plugin paths.
