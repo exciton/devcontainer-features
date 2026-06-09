@@ -2,7 +2,7 @@
   "id": "claude-code-config-bind-mount",
   "version": "1.0.0",
   "name": "Claude Code Config Bind Mount",
-  "description": "Mounts the host ~/.claude directory to /mnt/claude-dir and sets CLAUDE_CONFIG_DIR so Claude Code reads and writes config there regardless of the container username. Fixes a bug where absolute plugin paths stored by Claude Code don't resolve when host and container usernames differ.",
+  "description": "Mounts the host ~/.claude directory and ~/.claude.json file to /mnt/claude-dir and /mnt/claude-json, and symlinks them to the user's home directory to share Claude config and auth with the host. Fixes a bug where absolute plugin paths stored by Claude Code don't resolve when host and container usernames differ.",
   "options": {},
   "mounts": [
     {
