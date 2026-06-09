@@ -8,14 +8,12 @@
     {
       "source": "${localEnv:HOME}/.claude",
       "target": "/mnt/claude-dir",
-      "type": "bind",
-      "consistency": "cached"
+      "type": "bind"
     },
     {
       "source": "${localEnv:HOME}/.claude.json",
       "target": "/mnt/claude-json",
-      "type": "bind",
-      "consistency": "cached"
+      "type": "bind"
     }
   ],
   "onCreateCommand": "bash /usr/local/share/claude-code-config-bind-mount/onCreate.sh",
